@@ -11,8 +11,8 @@ Application **MERN Stack** complète de gestion de projets et tâches pour PME, 
 
 | Service | URL |
 |---------|-----|
-| **Frontend** (Vercel) | _(à renseigner après déploiement)_ |
-| **Backend** (Render) | _(à renseigner après déploiement)_ |
+| **Frontend** (Vercel) | [https://client-gamma-ruby.vercel.app](https://client-gamma-ruby.vercel.app) |
+| **Backend** (Render) | _(à renseigner après déploiement Render)_ |
 
 ---
 
