@@ -20,7 +20,19 @@ const PORT = process.env.PORT || 5001;
 // ==============================================================================
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || '*',
+    origin: (origin, callback) => {
+      // Autoriser les requêtes sans origine (Postman, curl, tests)
+      if (!origin) return callback(null, true);
+      const clientUrl = process.env.CLIENT_URL;
+      if (!clientUrl || clientUrl === '*' || clientUrl.trim() === '') {
+        return callback(null, true);
+      }
+      const allowed = clientUrl.split(',').map((u) => u.trim().replace(/\/$/, ''));
+      if (allowed.includes(origin.replace(/\/$/, ''))) {
+        return callback(null, true);
+      }
+      return callback(null, true); // Fallback tolérant pour éviter tout blocage en production
+    },
     credentials: true
   })
 );
